@@ -9,9 +9,8 @@ class CRM
     puts "[2] Modify an existing contact"
     puts "[3] Search for a contact"
     puts "[4] Display all contacts"
-    puts "[5] Display according to an attribute"
-    puts "[6] Delete a contact"
-    puts "[7] Exit\n\n"
+    puts "[5] Delete a contact"
+    puts "[6] Exit\n\n"
     puts "Please select an option:"
   end
 
@@ -37,11 +36,8 @@ class CRM
       display_all_contacts
     when 5
       reset
-      display_attribute
-    when 6
-      reset
       delete_contact
-    when 7
+    when 6
       exit
     else
       puts "Sorry, please try again."
@@ -62,7 +58,6 @@ class CRM
     puts "Note:"
     note = gets.chomp
     id = Rolodex.length + 1
-
     contact = Contact.new(id, first_name, last_name, email, note)
     Rolodex.add(contact)
     puts "\nContact added."
@@ -99,13 +94,6 @@ class CRM
 
   def display_all_contacts
     Rolodex.display_all_contacts
-    menu_return
-  end
-
-  def display_attribute
-    puts  "How would you like to display your contacts?"
-    choice = attribute_select
-    puts "#{Rolodex.display_info_by_attribute(choice)}"
     menu_return
   end
 

@@ -49,16 +49,6 @@ class Rolodex
     @@rolodex[id]
   end
 
-  def self.display_info_by_attribute(choice)
-    # id_array = []
-    case choice
-    when 1
-    when 2
-    when 3
-    when 4
-    end
-  end
-
   def self.delete_contact(id)
     @@rolodex.delete(contact(id))
     reassign_contact_ids
@@ -68,7 +58,4 @@ class Rolodex
     @@rolodex.each { |contact| contact.id = (@@rolodex.index(contact) + 1) }
   end
 
-
-  # future features
-  
 end
