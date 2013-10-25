@@ -45,7 +45,7 @@ class CRM
       exit
     else
       puts "Sorry, please try again."
-      menu_return
+      print_main_menu
     end
   end
 
@@ -105,10 +105,15 @@ class CRM
   def display_attribute
     puts  "How would you like to display your contacts?"
     choice = attribute_select
+    puts "#{Rolodex.display_info_by_attribute(choice)}"
+    menu_return
   end
 
   def delete_contact
-    puts "IMPLIMENT ME!"
+    message = "WPlease enter the ID of the contact you would like to delete?"
+    id = select_contact_id(message)
+    Rolodex.delete_contact(id)
+    menu_return
   end
 
   #display definitions
